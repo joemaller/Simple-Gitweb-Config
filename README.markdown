@@ -7,23 +7,16 @@ Authored by Joe Maller on January 2, 2010
 Based on Git source version 1.6.6   
 <http://github.com/joemaller/Simple-Gitweb-Config>
 
+**Download:** [zip](http://github.com/joemaller/Simple-Gitweb-Config/zipball/master) or [tar.gz](http://github.com/joemaller/Simple-Gitweb-Config/tarball/master)
+
 
 ###Instructions for installing Gitweb without building or compiling
 
-1. On your webserver, download and extract current Git source
-2. Inside gitweb directory, rename **gitweb.perl** -> **gitweb.cgi**
-3. In **gitweb.cgi**, line 546, inserting the name of this file:   
-	`-our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";`   
-	`+our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "gitweb_config.perl";`
-4. Copy the Simple Gitweb Config files into your gitweb.cgi directory
-5. Edit **gitweb\_config.perl**, **projects\_list.txt** and the three optional html 
+1. On your webserver, download and extract the current Git source package, then copy the **gitweb** directory to your web root.
+2. Inside the **gitweb** directory, rename **gitweb.perl** -> **gitweb.cgi**
+3. Edit **gitweb.cgi** replacing `++GITWEB_CONFIG++` with `gitweb_config.perl` on line 546:   
+	<span style="color: red">`-our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";`   </span>
+	<span style="color: green">`+our $GITWEB_CONFIG = `$ENV`{'GITWEB_CONFIG'} || "gitweb_config.perl";`</span>
+4. Download the **Simple Gitweb Config** files and extract them into the same directory as your **gitweb.cgi** files
+5. Edit **gitweb\_config.perl**, **projects\_list.txt** and optionally the three html 
    files for your local configuration 
-
-
-### The gitweb_config.perl file is broken up into two sections:
-
-1. Local Configuration   
-Gitweb won't work at all without these.
-
-2. Rarely Used   
-If you're customizing these settings, this probably isn't for you.

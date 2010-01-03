@@ -10,13 +10,16 @@
 # 
 # Instructions for installing Gitweb without building or compiling
 # 
-# 1. On your webserver, download and extract current Git source
+# 1. On your webserver, download and extract the current Git source package, 
+#    then copy the gitweb directory to your web root.
 # 2. Inside gitweb directory, rename gitweb.perl -> gitweb.cgi
-# 3. In gitweb.cgi, line 546, inserting the name of this file:
-#     -our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";
-#     +our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "gitweb_config.perl";
-# 4. Copy the Simple Gitweb Config files into your gitweb.cgi directory
-# 5. Edit gitweb_config.perl, projects_list.txt and the three optional html 
+# 3. Edit gitweb.cgi replacing ++GITWEB_CONFIG++ with gitweb_config.perl on 
+#    line 546: 
+#       -our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";
+#       +our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "gitweb_config.perl";
+# 4. CopyDownload the Simple Gitweb Config files and extract them into the 
+#    same directory as your gitweb.cgi files
+# 5. Edit gitweb_config.perl, projects_list.txt and optionally the three html
 #    files for your local configuration 
 
 # 
@@ -28,7 +31,7 @@
 # 2. Rarely Used
 #    If you're customizing these settings, this probably isn't for you.
 # 
-# Bulleted paragraphs in comments were copied from Gitweb's README file.
+# * Bulleted paragraphs in comments were copied from Gitweb's README file.
 
 
 
