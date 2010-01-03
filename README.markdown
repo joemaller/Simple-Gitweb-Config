@@ -14,7 +14,7 @@ http://github.com/joemaller/Simple-Gitweb-Config
 2. Inside gitweb directory, rename gitweb.perl -> gitweb.cgi
 3. In gitweb.cgi, line 546, inserting the name of this file:   
 `-our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";   
- +our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "gitweb_config.perl";'
+ +our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "gitweb_config.perl";`
 4. Copy the Simple Gitweb Config files into your gitweb.cgi directory
 5. Edit gitweb_config.perl, projects_list.txt and the three optional html 
    files for your local configuration 
