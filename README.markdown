@@ -15,8 +15,8 @@ Based on Git source version 1.6.6
 1. On your webserver, download and extract the current Git source package, then copy the **gitweb** directory to your web root.
 2. Inside the **gitweb** directory, rename **gitweb.perl** -> **gitweb.cgi**
 3. Edit **gitweb.cgi** replacing `++GITWEB_CONFIG++` with `gitweb_config.perl` on line 546:   
-	<span style="color: red">`-our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";`   </span>
-	<span style="color: green">`+our $GITWEB_CONFIG = `$ENV`{'GITWEB_CONFIG'} || "gitweb_config.perl";`</span>
+	`-our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";`   
+	`+our $GITWEB_CONFIG = `$ENV`{'GITWEB_CONFIG'} || "gitweb_config.perl";`
 4. Download the **Simple Gitweb Config** files and extract them into the same directory as your **gitweb.cgi** files
 5. Edit **gitweb\_config.perl**, **projects\_list.txt** and optionally the three html 
    files for your local configuration 
