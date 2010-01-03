@@ -20,7 +20,7 @@
 #    files for your local configuration 
 
 # 
-# The settings in this file are broken up into two groups:
+# This settings file is broken up into two sections:
 # 
 # 1. Local Configuration
 #    Gitweb won't work at all without these.
@@ -34,7 +34,7 @@
 
 # 
 # 
-# 1. CRITICAL VALUES
+# 1. LOCAL CONFIGURATION
 #    Gitweb won't work at all without these.
 # 
 # 
@@ -182,7 +182,7 @@ our $projects_list_description_width = 45;
 # 3. Rarely Used
 #    Gitweb has some really powerful features I'm not using
 # 
-#    Most likely, you don't need to edit anything in this section
+#    Most likely, you won't need to edit anything below here.
 # 
 # 
 # * GITWEB_PROJECT_MAXDEPTH
