@@ -3,7 +3,7 @@
 # This is an example configuration file for simple, non-compiled deployments
 # of Gitweb.
 # 
-# Authored by Joe Maller on January 2, 2010
+# Authored by Joe Maller, January 2010
 # Based on Git source version 1.6.6
 # http://github.com/joemaller/Simple-Gitweb-Config
 # 
@@ -46,20 +46,24 @@
 #   the place where the git binary was installed (usually /usr/bin) if you
 #   don't install git from sources together with gitweb.  [Default: $(bindir)]
 # 
-# path to your git executable, just paste in the output of `which git`
+# First, extend PATH for any locally compiled Git binaries
+$ENV{'PATH'} .= ":" . glob('~/bin');
+# Now Perl should be able to find Git for us, if it can't, or if you'd rather
+# hardcode the path, just paste the output of `which git` in double quotes.
 
-our $GIT = "/usr/bin/git";
+our $GIT = `which git`;
+
 
 # 
 # * GITWEB_PROJECTROOT
 #   The root directory for all projects shown by gitweb. Must be set
 #   correctly for gitweb to find repositories to display.  
 # 
-# the topmost path where all directory traversal starts from. Also used as
-# root path for entries in $projects_list. This needs to be a full path,
-# tilde expansion doesn't work.
+# The topmost path where all directory traversal starts from. Also used as
+# root path for entries in $projects_list. Using glob() allows for tilde-
+# expansion, if you need to hard-code a full path, just use a quoted string.
 
-our $projectroot = "/full/path/to/your/git/repository/parent";
+our $projectroot = glob('~/');
 
 # 
 # * GITWEB_LIST
@@ -182,10 +186,10 @@ our $projects_list_description_width = 45;
 
 # 
 # 
-# 3. Rarely Used
-#    Gitweb has some really powerful features I'm not using
+# 2. Rarely Used
+#    If you're customizing these settings, this probably isn't for you.
 # 
-#    Most likely, you won't need to edit anything below here.
+#    Most likely, you don't need to edit anything below here.
 # 
 # 
 # * GITWEB_PROJECT_MAXDEPTH
@@ -195,7 +199,7 @@ our $projects_list_description_width = 45;
 #   Is is meant to speed up project listing on large work trees by limiting
 #   search depth.  [Default: 2007]
 
-our $project_maxdepth = 2007;
+our $project_maxdepth = 1000;
 
 # 
 # * GITWEB_EXPORT_OK
@@ -234,5 +238,23 @@ our @git_base_url_list = ("");
 
 
 
+
+
+# * Clean up
+#   Tweaking a few values for a more general-purpose configuration file.
+# 
+# 
+# If Git's path was automatically detected, $GIT will have a trailing newline
+# which needs to be removed. Chomp() is down here so as not to clutter up the
+# rest of the script. Processing cost is negligent, it's probably not woth the 
+# trouble of commenting this out.
+
+chomp($GIT);
+
+
+# This configuration will default to scanning for repositories if the 
+# $projects_list file doesn't exist.
+
+our $projects_list = "" if (!-e $projects_list);
 
 

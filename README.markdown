@@ -3,9 +3,8 @@
 This is an example configuration file for simple, non-compiled deployments
 of Gitweb.
 
-Authored by Joe Maller on January 2, 2010   
-Based on Git source version 1.6.6   
-<http://github.com/joemaller/Simple-Gitweb-Config>
+Authored by Joe Maller, January 2010   
+Based on Git v1.6.6   
 
 **Download:** [zip](http://github.com/joemaller/Simple-Gitweb-Config/zipball/master) or [tar.gz](http://github.com/joemaller/Simple-Gitweb-Config/tarball/master)
 
@@ -17,6 +16,5 @@ Based on Git source version 1.6.6
 3. Edit **gitweb.cgi** replacing `++GITWEB_CONFIG++` with `gitweb_config.perl` on line 546:   
 	<span style="color: red">`-our $GITWEB_CONFIG = $ENV{'GITWEB_CONFIG'} || "++GITWEB_CONFIG++";`   </span>
 	<span style="color: green">`+our $GITWEB_CONFIG = `$ENV`{'GITWEB_CONFIG'} || "gitweb_config.perl";`</span>
-4. Download the **Simple Gitweb Config** files and extract them into the same directory as your **gitweb.cgi** files
-5. Edit **gitweb\_config.perl**, **projects\_list.txt** and optionally the three html 
-   files for your local configuration 
+4. Download the **Simple Gitweb Config** files and extract them into the same directory as your **gitweb.cgi** files. At this point, Gitweb should be working.
+5. If necessary, edit **projects\_list.txt**, **gitweb\_config.perl** and customize the three html files for your environment. 

@@ -1,4 +1,0 @@
-# Format: (paths are relative to $projectroot)
-# 
-# [path_to_repository] [owner]
-

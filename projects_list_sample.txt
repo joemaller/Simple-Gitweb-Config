@@ -1,0 +1,9 @@
+# To have Gitweb show a selected set of repositories, rename this file to 
+# "projects_list.txt" and add an entry for each repository, one per line using 
+# the following format:
+#  
+# Format: (paths are relative to $projectroot, values are url-escaped)
+# 
+
+path_to_repository.git	owner's+name
+
