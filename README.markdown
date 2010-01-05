@@ -1,7 +1,7 @@
 ##gitweb_config.perl
 
 This is an example configuration file for simple, non-compiled deployments
-of Gitweb.
+of Gitweb. In most cases, Gitweb will work without having to manually configure any additional settings.
 
 Authored by Joe Maller, January 2010   
 Based on Git v1.6.6   
